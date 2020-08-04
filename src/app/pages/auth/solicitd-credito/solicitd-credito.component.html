@@ -1,0 +1,16 @@
+<div class="container" *ngIf="paso == 0">
+    <h1 class="display-4">Solicita tu Credito</h1>
+    <hr>
+    <div class="form-row">
+        <div class="col">
+            <h3>Su prestamo es de {{ solicitud.valor }}</h3>
+            <input type="range" class="form-control-range" [(ngModel)]="solicitud.valor" name="valor" min="10000" max="100000">
+        </div>
+        <div class="col-3">
+            <button class="btn btn-block btn-outline-primary btn-lg" (click)="paso = 1">Solicitar Credito</button>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="paso == 1">
+    <app-sign-up [solicitud]="solicitud"></app-sign-up>
+</div>

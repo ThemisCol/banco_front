@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 class="display-4">Hola, Tu solicitud es por ${{ solicitud.valor }}</h1>
+    <hr>
+    <h3>Ingresa por favor tu información</h3>
+    <form #newSolocitud="ngForm" (ngSubmit)="guardar(newSolocitud)">
+        <div class="form-row">
+            <div class="col">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" [(ngModel)]="solicitud.nombre" name="nombre" required>
+            </div>
+            <div class="col">
+                <label>Cedula:</label>
+                <input type="text" class="form-control" [(ngModel)]="solicitud.cedula" name="cedula" required>
+            </div>
+            <div class="col-4">
+                <label>Correo:</label>
+                <input type="email" class="form-control" pattern="^([0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" [(ngModel)]="solicitud.correo" name="email" required>
+            </div>
+            <div class="col">
+                <label>Solicitar:</label>
+                <button type="submit" class="btn btn-primary btn-block">Solicitar</button>
+            </div>
+
+        </div>
+    </form>
+</div>

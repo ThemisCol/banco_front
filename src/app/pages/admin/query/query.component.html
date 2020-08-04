@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="display-4">Solicitudes de Credito</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Tools</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of solicitudes | async">
+                <th scope="row">{{item.cedula}}</th>
+                <td>{{item.nombre}}</td>
+                <td>{{item.correo }}</td>
+                <td>{{item.estado}}</td>
+                <td>
+                    <select class="form-control" [(ngModel)]="item.estado" name="estado" (change)="cambio(item)">
+                        <option value="APROBADO">APROBAR</option>
+                        <option value="DENEGADO">DENEGAR</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
